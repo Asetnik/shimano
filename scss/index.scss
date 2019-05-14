@@ -1,0 +1,59 @@
+$black: black;
+$gray: gray;
+$white: white;
+$blue: #1a8bc9;
+$light-gray: #f8f8f8;
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.container{
+  margin-right: auto;
+  margin-left:  auto;
+  max-width: 1140px;
+}
+
+.display{
+  display: block!important;
+}
+
+.btn{
+  background-color: $black;
+  color: $white;
+  font-size: 14px;
+  padding: 13px 16px;
+  border: none;
+  border-radius: 2px;
+  text-transform: uppercase;
+  font-family: "Open Sans Condensed Bold";
+  cursor: pointer;
+}
+
+.btn:hover{
+  background-color: $blue;
+}
+
+.clearfix::after{
+  content: "";
+  clear: both;
+  display: table;
+}
+
+@font-face{
+  font-family: "Open Sans Condensed Bold";
+  src: url("../fonts/open-sans-condensed-bold.ttf") format("truetype"); 
+}
+
+@font-face{
+  font-family: "Open Sans";
+  src: url("../fonts/open-sans.ttf") format("truetype"); 
+}
+
+@font-face{
+  font-family: "Open Sans Semibold";
+  src: url("../fonts/open-sans-semibold.ttf") format("truetype"); 
+}
+
+@import "bar", "header", "visual", "category", "top", "text-section", "newsletter", "catalog", "footer", "city-drop", "request-call-drop", "catalog-drop", "top-element-drop", "adaptive";

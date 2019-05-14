@@ -1,0 +1,75 @@
+.newsletter{
+  background: url(../img/newsletter.png) no-repeat center center;
+  padding: 30px 0;
+  font-family: "Open Sans Condensed Bold";
+
+  .content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .info h2{
+    font-size: 21px;
+    color: $white;
+    text-transform: uppercase;
+  }
+
+  .subscription-wrap{
+    display: grid;
+    align-items: center;
+    justify-items: right;
+    position: relative;
+  }
+
+  .subscription{
+    width: fit-content;
+    float: right;
+
+    .icon-wrap{
+      height: 35px;
+      float: left;
+      background-color: $white;
+      display: grid;
+      align-items: center;
+      border-top-left-radius: 2px;
+      border-bottom-left-radius: 2px;
+      border-bottom: 1px solid $gray;
+      border-top: 1px solid $gray;
+
+      i{
+        margin: 0 10px;
+        color: $gray;
+      }
+    }
+
+    input{
+      height: 35px;
+      width: 375px;
+      float: left;
+      border: none;
+      border-bottom: 1px solid $gray;
+      border-top: 1px solid $gray;
+    }
+
+    input::placeholder{
+      color: $black;
+      font-family: "Open Sans";
+    }
+
+    button{
+      height: 37px;
+      float: left;
+      padding: 0 6px 0 18px;
+      background-color: $blue;
+      color: $white;
+      text-transform: uppercase;
+      font-size: 14px;
+      border: none;
+      border-bottom: 1px solid $gray;
+      border-top: 1px solid $gray;
+      border-top-right-radius: 2px;
+      border-bottom-right-radius: 2px;
+      font-family: "Open Sans Condensed Bold";
+    }
+  }
+}

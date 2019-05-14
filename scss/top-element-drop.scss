@@ -1,0 +1,88 @@
+.top-element-drop{
+  z-index: 10;
+  position: fixed;
+  margin: 0;
+  width: 480px;
+  height: auto;
+  padding: 35px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  img{
+    float: left;
+    width: 200px;
+  }
+
+  .info{
+    float: left;
+    position: relative;
+    max-width: 245px;
+    left: 0;
+    bottom: 0;
+    margin-left: 20px;
+  }
+
+  i{
+    color: $blue;
+    cursor: pointer;
+  }
+
+  .fa-times{
+    position: absolute;
+    top: 20px;
+    right: 35px;
+  }
+
+  .cost-wrap{
+    display: grid;
+    align-items: center;
+    margin-top: 25px;
+    float: right;
+    grid-template-columns: max-content max-content;
+  }
+
+  .amount{
+    display: grid;
+    width: 80px;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .amount-value{
+    border: none;
+    width: 50px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .cost{
+    padding: 0;
+    margin-left: 75px;
+    line-height: normal;
+  }
+
+  .actions{
+    display: grid;
+    grid-template-columns: max-content max-content;
+    align-items: center;
+    float: right;
+    margin-top: 30px;
+
+    h2{
+      font-family: "Open Sans Condensed Bold";
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    h2:hover{
+      color: $blue;
+    }
+
+    .btn{
+      margin: 0 0 0 50px;
+    }
+  }
+}

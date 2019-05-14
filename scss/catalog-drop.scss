@@ -1,0 +1,14 @@
+#catalog-drop{
+  position: absolute;
+  width: 1140px;
+  top: 75px;
+  left: 50%;
+  background-color: $white;
+  transform: translate(-50%);
+  box-shadow: -1px 1px 1px 1px $gray;
+  display: none;
+
+  .catalog-section{
+    padding: 30px 45px;
+  }
+}

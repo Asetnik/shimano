@@ -1,0 +1,37 @@
+footer{
+  padding: 55px 0 60px 0;
+  font-family: "Open Sans";
+
+  img{
+    float: left;
+    height: 10px;
+    margin-top: 2px;
+  }
+
+  .nav-elem{
+    float: left;
+    margin-left: 8px;
+
+    span{
+      float: left;
+      margin: 3px 10px 0 0;
+      border-left: 1px solid $gray;
+      height: 11px;
+    }
+
+    a{
+      float: left;
+      font-size: 11px;
+      text-decoration: none;
+      color: $gray;
+    }
+  }
+
+  .nav-elem a:hover{
+    color: $blue;
+  }
+
+  .nav-elems .nav-elem:first-child span{
+    border: none;
+  }
+}

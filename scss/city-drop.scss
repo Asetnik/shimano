@@ -1,0 +1,58 @@
+#city-drop{
+  position: absolute;
+  width: 1080px;
+  padding: 20px 30px;
+  background-color: $white;
+  top: 30px;
+  left: 50%;
+  transform: translate(-50%);
+  color: black;
+  font-family: "Open Sans Condensed Bold";
+  text-transform: uppercase;
+  box-shadow: -1px 1px 1px 1px $gray;
+  display: none;
+
+  .head{
+    display: inline-block;
+    h3{
+      float: left;
+      font-size: 16px;
+    }
+
+    i{
+      position: absolute;
+      right: 30px;
+      cursor: pointer;
+    }
+  }
+
+  hr{
+    margin: 25px 0;
+    display: block; 
+    height: 1px;
+    border: 0; 
+    border-top: 1px solid $black;
+  }
+
+  hr:last-child{
+    border-color: $gray;
+  }
+
+  .cities{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    
+    .checked{
+      color: $blue;
+    }
+
+    .city{
+      font-size: 14px;
+    }
+
+    .city:hover{
+      color: $blue;
+      cursor: pointer;
+    }
+  }
+}
