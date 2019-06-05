@@ -34,14 +34,13 @@
 
   .items-wrap{
     display: grid;
-    grid-template-columns: 50% 50%;
-    grid-column-gap: 40px;
+    grid-template-columns: repeat(2, 50%);
   }
 
 
   .left-items{
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: repeat(2, calc(50% - 20px));
     grid-column-gap: 20px;
   }
 
