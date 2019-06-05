@@ -24,11 +24,11 @@ let slides = [
         imgURL: "img/slider-img2.png"
     },
     {
-        h3: "Супермегакрутая катушка",
+        h3: "eeeeeeeeeeee",
         firstLogoURL: "img/slider-logo11.png",
         secondLogoURL: "img/slider-logo22.png",
         p: "Портрет потребителя разнородно переворачивает фирменный стиль. Наряду с этим, создание приверженного покупателя развивает культурный пак-шот. Нестандартный подход отталкивает стиль менеджмента.",
-        imgURL: "img/slider-img1.png"
+        imgURL: "img/category-item1.png"
     },
 ];
 
