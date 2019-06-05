@@ -156,49 +156,53 @@
     margin: 0; }
 
 .visual {
-  height: 580px;
-  background: url(../img/visual.png) no-repeat center center;
+  height: auto;
+  padding-bottom: 30px;
   background-color: #f8f8f8;
-  position: relative;
   font-family: "Open Sans Condensed Bold"; }
-  .visual .arrow {
-    height: 75px;
-    position: absolute;
-    width: 40px;
-    top: 50%;
-    transform: translate(0, -50%);
-    background-color: rgba(255, 255, 255, 0.5);
-    border: none;
-    cursor: pointer; }
-    .visual .arrow i {
-      color: gray; }
-  .visual .arrow:hover {
-    background-color: white; }
-    .visual .arrow:hover i {
-      color: #1a8bc9; }
-  .visual .left-arrow {
-    left: 0; }
-  .visual .right-arrow {
-    right: 0; }
-    .visual .right-arrow img {
-      transform: rotate(180deg); }
-  .visual .content-wrap {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); }
-    .visual .content-wrap .content {
-      padding: 135px 0 0 30px; }
-      .visual .content-wrap .content h3 {
-        font-size: 16px;
-        text-transform: uppercase; }
-      .visual .content-wrap .content .logotypes img {
-        height: 83px; }
-      .visual .content-wrap .content .logotypes img:first-child {
-        height: 40px;
-        margin: 0 5px 19px 0; }
-      .visual .content-wrap .content p {
-        margin: 20px 0 30px 0;
-        font-size: 14px;
-        font-family: "Open Sans"; }
+  .visual .slider {
+    position: relative;
+    height: 550px;
+    background: url(../img/slider-bg.png) no-repeat center center/cover; }
+    .visual .slider .arrow {
+      height: 75px;
+      position: absolute;
+      width: 40px;
+      top: 50%;
+      transform: translate(0, -50%);
+      background-color: rgba(255, 255, 255, 0.5);
+      border: none;
+      border-radius: 2px;
+      cursor: pointer; }
+      .visual .slider .arrow i {
+        color: gray; }
+    .visual .slider .arrow:hover {
+      background-color: white; }
+      .visual .slider .arrow:hover i {
+        color: #1a8bc9; }
+    .visual .slider .left-arrow {
+      left: 0; }
+    .visual .slider .right-arrow {
+      right: 0; }
+      .visual .slider .right-arrow img {
+        transform: rotate(180deg); }
+    .visual .slider .content-wrap {
+      display: grid;
+      grid-template-columns: repeat(2, 560px); }
+      .visual .slider .content-wrap .content {
+        padding: 135px 0 0 30px; }
+        .visual .slider .content-wrap .content h3 {
+          font-size: 16px;
+          text-transform: uppercase; }
+        .visual .slider .content-wrap .content .logotypes img {
+          height: 83px; }
+        .visual .slider .content-wrap .content .logotypes img:first-child {
+          height: 38px;
+          margin: 0 5px 19px 0; }
+        .visual .slider .content-wrap .content p {
+          margin: 20px 0 30px 0;
+          font-size: 14px;
+          font-family: "Open Sans"; }
 
 .category {
   height: 540px;
@@ -431,7 +435,7 @@
     margin-top: 55px; }
 
 .newsletter {
-  background: url(../img/newsletter.png) no-repeat center center;
+  background: url(../img/newsletter.png) no-repeat center center/cover;
   padding: 30px 0;
   font-family: "Open Sans Condensed Bold"; }
   .newsletter .content {
@@ -492,7 +496,8 @@
   font-family: "Open Sans Condensed Bold"; }
   .catalog-section h3 {
     font-size: 14px;
-    text-transform: uppercase; }
+    text-transform: uppercase;
+    text-decoration: none; }
   .catalog-section li {
     list-style: none; }
   .catalog-section .title {
@@ -526,6 +531,9 @@
       margin: 0 0 20px 0; }
     .catalog-section .catalog h3:hover {
       color: #1a8bc9; }
+    .catalog-section .catalog li a {
+      text-decoration: none;
+      color: black; }
     .catalog-section .catalog li h3 {
       margin: 25px 0 20px 0; }
     .catalog-section .catalog li li a {
@@ -572,16 +580,17 @@ footer {
 
 #city-drop {
   position: absolute;
+  z-index: 1000;
   width: 1080px;
   padding: 20px 30px;
   background-color: white;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
   top: 30px;
   left: 50%;
   transform: translate(-50%);
   color: black;
   font-family: "Open Sans Condensed Bold";
   text-transform: uppercase;
-  box-shadow: -1px 1px 1px 1px gray;
   display: none; }
   #city-drop .head {
     display: inline-block; }
@@ -618,7 +627,7 @@ footer {
   left: -70px;
   width: 400px;
   background-color: white;
-  box-shadow: -1px 1px 1px 1px gray;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
   display: none; }
   #request-form h3 {
     margin: 20px 35px;
@@ -664,12 +673,13 @@ footer {
 
 #catalog-drop {
   position: absolute;
+  z-index: 1000;
   width: 1140px;
   top: 75px;
   left: 50%;
   background-color: white;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
   transform: translate(-50%);
-  box-shadow: -1px 1px 1px 1px gray;
   display: none; }
   #catalog-drop .catalog-section {
     padding: 30px 45px; }
@@ -737,6 +747,14 @@ footer {
       color: #1a8bc9; }
     .top-element-drop .actions .btn {
       margin: 0 0 0 50px; }
+
+#drop-bg {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: none; }
 
 @media only screen and (min-width: 1020px) and (max-width: 1169px) {
   .container {
@@ -895,21 +913,21 @@ footer {
     #request-form input {
       width: 120px; }
 
-  .visual {
-    height: 400px;
-    background-position: center left; }
-    .visual .arrow {
+  .visual .slider {
+    background-position: center left;
+    height: 400px; }
+    .visual .slider .arrow {
       display: none; }
-    .visual .content-wrap {
+    .visual .slider .content-wrap {
       grid-template-columns: 1fr; }
-      .visual .content-wrap .content {
+      .visual .slider .content-wrap .content {
         padding: 35px 0 0 0; }
-        .visual .content-wrap .content .logotypes {
+        .visual .slider .content-wrap .content .logotypes {
           margin-top: 20px; }
-          .visual .content-wrap .content .logotypes img {
+          .visual .slider .content-wrap .content .logotypes img {
             float: left;
             height: 40px; }
-          .visual .content-wrap .content .logotypes img:first-child {
+          .visual .slider .content-wrap .content .logotypes img:first-child {
             height: 23px;
             margin: 10px 0 0 0; }
 
@@ -996,5 +1014,8 @@ footer {
         float: none; }
       footer .nav-elem span {
         display: none; } }
+@media only screen and (max-width: 1169px) {
+  .visual .slider {
+    background-size: auto; } }
 
 /*# sourceMappingURL=index.css.map */

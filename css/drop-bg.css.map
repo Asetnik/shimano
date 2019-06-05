@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,QAAQ;EACN,QAAQ,EAAE,KAAK;EACf,OAAO,EAAE,GAAG;EACZ,GAAG,EAAE,CAAC;EACN,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,KAAK;EACb,OAAO,EAAE,IAAI",
+"sources": ["../scss/drop-bg.scss"],
+"names": [],
+"file": "drop-bg.css"
+}

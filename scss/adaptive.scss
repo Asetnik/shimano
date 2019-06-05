@@ -267,31 +267,33 @@
   }
 
   .visual{
-    height: 400px;
-    background-position: center left;
+    .slider {
+      background-position: center left;
+      height: 400px;
 
-    .arrow{
-      display: none;
-    }
+      .arrow {
+        display: none;
+      }
 
-    .content-wrap{
-      grid-template-columns: 1fr;
+      .content-wrap {
+        grid-template-columns: 1fr;
 
-      .content{
-        padding: 35px 0 0 0;
+        .content {
+          padding: 35px 0 0 0;
 
 
-        .logotypes{
-          margin-top: 20px;
+          .logotypes {
+            margin-top: 20px;
 
-          img{
-            float: left;
-            height: 40px;
-          }
+            img {
+              float: left;
+              height: 40px;
+            }
 
-          img:first-child{
-            height: 23px;
-            margin: 10px 0 0 0;
+            img:first-child {
+              height: 23px;
+              margin: 10px 0 0 0;
+            }
           }
         }
       }
@@ -444,5 +446,13 @@
       }
     }
     text-align: center;
+  }
+}
+
+@media only screen and (max-width : 1169px) {
+  .visual {
+    .slider {
+      background-size: auto;
+    }
   }
 }

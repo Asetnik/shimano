@@ -1,72 +1,78 @@
 .visual{
-  height: 580px;
-  background: url(../img/visual.png) no-repeat center center;
+  height: auto;
+  padding-bottom: 30px;
   background-color: $light-gray;
-  position: relative;
   font-family: "Open Sans Condensed Bold";
 
-  .arrow{
-    height: 75px;
-    position: absolute;
-    width: 40px;
-    top: 50%;
-    transform: translate(0, -50%);
-    background-color: rgba($color: $white, $alpha: 0.5);
-    border: none;
-    cursor: pointer;
+  .slider {
+    position: relative;
+    height: 550px;
+    background: url(../img/slider-bg.png) no-repeat center center /cover;
 
-    i{
-      color: $gray;
-    }
-  }
+    .arrow {
+      height: 75px;
+      position: absolute;
+      width: 40px;
+      top: 50%;
+      transform: translate(0, -50%);
+      background-color: rgba($color: $white, $alpha: 0.5);
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
 
-  .arrow:hover{
-    background-color: $white;
-
-    i{
-      color: $blue;
-    }
-  }
-
-  .left-arrow{
-    left: 0;
-  }
-
-  .right-arrow{
-    right: 0;
-
-    img{
-      transform: rotate(180deg);
-    }
-  }
-
-  .content-wrap{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-
-    .content{
-      padding: 135px 0 0 30px;
-
-      h3{
-        font-size: 16px;
-        text-transform: uppercase;
+      i {
+        color: $gray;
       }
+    }
 
-      .logotypes{
-        img{
-          height: 83px;
+    .arrow:hover {
+      background-color: $white;
+
+      i {
+        color: $blue;
+      }
+    }
+
+    .left-arrow {
+      left: 0;
+    }
+
+    .right-arrow {
+      right: 0;
+
+      img {
+        transform: rotate(180deg);
+      }
+    }
+
+    .content-wrap {
+      display: grid;
+      grid-template-columns: repeat(2, 560px);
+
+      .content {
+        padding: 135px 0 0 30px;
+
+        h3 {
+          font-size: 16px;
+          text-transform: uppercase;
         }
 
-        img:first-child{
-          height: 40px;
-          margin: 0 5px 19px 0;
-        }
-      }
+        .logotypes {
+          img {
+            height: 83px;
+          }
 
-      p{
-        margin: 20px 0 30px 0;
-        font-size: 14px;
-        font-family: "Open Sans";
+          img:first-child {
+            height: 38px;
+            margin: 0 5px 19px 0;
+          }
+        }
+
+        p {
+          margin: 20px 0 30px 0;
+          font-size: 14px;
+          font-family: "Open Sans";
+        }
       }
     }
   }

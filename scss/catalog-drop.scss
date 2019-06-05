@@ -1,11 +1,12 @@
 #catalog-drop{
   position: absolute;
+  z-index: 1000;
   width: 1140px;
   top: 75px;
   left: 50%;
   background-color: $white;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
   transform: translate(-50%);
-  box-shadow: -1px 1px 1px 1px $gray;
   display: none;
 
   .catalog-section{

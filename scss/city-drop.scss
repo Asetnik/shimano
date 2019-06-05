@@ -1,15 +1,16 @@
 #city-drop{
   position: absolute;
+  z-index: 1000;
   width: 1080px;
   padding: 20px 30px;
   background-color: $white;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
   top: 30px;
   left: 50%;
   transform: translate(-50%);
   color: black;
   font-family: "Open Sans Condensed Bold";
   text-transform: uppercase;
-  box-shadow: -1px 1px 1px 1px $gray;
   display: none;
 
   .head{
