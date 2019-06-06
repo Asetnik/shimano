@@ -163,7 +163,8 @@
     .visual .slider .content-wrap {
       grid-template-columns: 1fr; }
       .visual .slider .content-wrap .content {
-        padding: 35px 0 0 0; }
+        padding: 35px 0 0 0;
+        max-width: 290px; }
         .visual .slider .content-wrap .content .logotypes {
           margin-top: 20px; }
           .visual .slider .content-wrap .content .logotypes img {
@@ -172,6 +173,8 @@
           .visual .slider .content-wrap .content .logotypes img:first-child {
             height: 23px;
             margin: 10px 0 0 0; }
+      .visual .slider .content-wrap .image {
+        display: none; }
 
   .category {
     padding-top: 35px; }
