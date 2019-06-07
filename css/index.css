@@ -3,6 +3,9 @@
   padding: 0;
   outline: none; }
 
+body {
+  overflow-x: hidden; }
+
 .container {
   margin-right: auto;
   margin-left: auto;

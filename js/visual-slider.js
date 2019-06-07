@@ -1,13 +1,3 @@
-let slider = document.getElementsByClassName("slider")[0];
-let h3 = slider.getElementsByTagName("h3")[0];
-let firstLogoURL = slider.getElementsByClassName("logotypes")[0].getElementsByTagName("img")[0];
-let secondLogoURL = slider.getElementsByClassName("logotypes")[0].getElementsByTagName("img")[1];
-let p = slider.getElementsByTagName("p")[0];
-let img = slider.getElementsByClassName("image")[0].getElementsByTagName("img")[0];
-let leftArrow = slider.getElementsByClassName("left-arrow")[0];
-let rightArrow = slider.getElementsByClassName("right-arrow")[0];
-let content = slider.getElementsByClassName("content-wrap")[0];
-
 let slides = [
     {
         h3: "каткушка безынерционная",
@@ -32,84 +22,128 @@ let slides = [
     },
 ];
 
-let i = 0;
+let slider = document.getElementsByClassName("slider")[0];
+let h3 = slider.getElementsByTagName("h3")[0];
+let firstLogoURL = slider.getElementsByClassName("logotypes")[0].getElementsByTagName("img")[0];
+let secondLogoURL = slider.getElementsByClassName("logotypes")[0].getElementsByTagName("img")[1];
+let p = slider.getElementsByTagName("p")[0];
+let img = slider.getElementsByClassName("image")[0].getElementsByTagName("img")[0];
+let leftArrow = slider.getElementsByClassName("left-arrow")[0];
+let rightArrow = slider.getElementsByClassName("right-arrow")[0];
+let content = slider.getElementsByClassName("content-wrap")[0];
+
+let slideNum = 0;
 let slideTime = 5000;
 let firstTimer;
 let animationTime = 500;
 
-function slide(i, animation) {
-    content.style.display = "none";
-    h3.innerText = slides[i].h3;
-    firstLogoURL.src = slides[i].firstLogoURL;
-    secondLogoURL.src = slides[i].secondLogoURL;
-    p.innerText = slides[i].p;
-    img.src = slides[i].imgURL;
-    i++;
-
-    if( i >= slides.length ) {
-        i = 0;
-    }
-    animation();
-    firstTimer = setTimeout( slide, slideTime, i, rightAnimation);
+function slide(animation) {
+    slideNum = slideNum % slides.length;
+    animation(slideNum);
+    firstTimer = setTimeout( slide, slideTime, rightAnimation);
 }
-slide(i, rightAnimation);
-
+slide(rightAnimation);
 
 rightArrow.addEventListener("click", () => {
     clearTimeout(firstTimer);
-    i++;
-    if( i >= slides.length ){
-        i = 0;
-    }
-    slide(i, rightAnimation);
+    slideNum++;
+    slide(rightAnimation);
 });
 
 leftArrow.addEventListener("click", () => {
     clearTimeout(firstTimer);
-    i--;
-    if( i < 0 ){
-        i = slides.length - 1;
+    console.log(slideNum);
+    slideNum--;
+    if( slideNum < 0 ){
+        slideNum = slides.length - 1;
     }
-    slide(i, leftAnimation);
+    slide(leftAnimation);
 });
 
 function rightAnimation() {
-    document.body.style.overflowX = "hidden";
     let start = Date.now();
-    let timer = setInterval(() => {
-        let timePassed = Date.now() - start;
 
+    let timerLeave = setInterval(() => {
+        let timePassed = Date.now() - start;
         if (timePassed >= animationTime) {
-            clearInterval(timer);
-            document.body.style.overflowX = "auto";
+            clearInterval(timerLeave);
+            content.style.display = "none";
+            content.style.marginLeft = "0px";
+
+            h3.innerText = slides[slideNum].h3;
+            firstLogoURL.src = slides[slideNum].firstLogoURL;
+            secondLogoURL.src = slides[slideNum].secondLogoURL;
+            p.innerText = slides[slideNum].p;
+            img.src = slides[slideNum].imgURL;
+
+            come();
             return;
         }
-        content.style.display = "grid";
-        drawRightContent(timePassed);
-    }, 20);
+        drawLeaveLeft(timePassed);
+    },20);
+
+    function come() {
+        let timerCome = setInterval(() => {
+            let timePassed = Date.now() - start - 500;
+            if (timePassed >= animationTime) {
+                clearInterval(timerCome);
+                content.style.paddingLeft = "0";
+                return;
+            }
+            content.style.display = "grid";
+            drawComeLeft(timePassed);
+        }, 20);
+    }
 }
 
 function leftAnimation() {
-    document.body.style.overflowX = "hidden";
-    content.minWidth = content.parentElement.offsetWidth;
     let start = Date.now();
-    let timer = setInterval(() => {
-        let timePassed = Date.now() - start;
 
+    let timerLeave = setInterval(() => {
+        let timePassed = Date.now() - start;
         if (timePassed >= animationTime) {
-            clearInterval(timer);
-            document.body.style.overflowX = "auto";
+            clearInterval(timerLeave);
+            content.style.display = "none";
+            content.style.paddingLeft = "0px";
+
+            h3.innerText = slides[slideNum].h3;
+            firstLogoURL.src = slides[slideNum].firstLogoURL;
+            secondLogoURL.src = slides[slideNum].secondLogoURL;
+            p.innerText = slides[slideNum].p;
+            img.src = slides[slideNum].imgURL;
+
+            come();
             return;
         }
-        content.style.display = "grid";
-        drawLeftContent(timePassed);
-    }, 20);
+        drawLeaveRight(timePassed);
+    },20);
+
+    function come() {
+        let timerCome = setInterval(() => {
+            let timePassed = Date.now() - start - 500;
+            if (timePassed >= animationTime) {
+                clearInterval(timerCome);
+                content.style.marginLeft = "0";
+                return;
+            }
+            content.style.display = "grid";
+            drawComeRight(timePassed);
+        }, 20);
+    }
 }
 
-function drawRightContent(timePassed) {
-    content.style.marginLeft = 10 - content.offsetWidth + timePassed / (animationTime / content.offsetWidth) + "px";
+function drawLeaveLeft(timePassed) {
+    content.style.marginLeft = - timePassed * (content.offsetWidth / animationTime) + "px";
 }
 
-function drawLeftContent(timePassed) {
-    content.style.paddingLeft = content.offsetWidth - timePassed / (animationTime / content.offsetWidth) + "px";
+function drawComeLeft(timePassed) {
+    content.style.paddingLeft = content.offsetWidth - timePassed * (content.offsetWidth / animationTime) + "px";
+}
+
+function drawLeaveRight(timePassed) {
+    content.style.paddingLeft = timePassed * (content.offsetWidth / animationTime) + "px"
+}
+
+function drawComeRight(timePassed) {
+    content.style.marginLeft = - content.offsetWidth + timePassed * (content.offsetWidth / animationTime) + "px";
 }

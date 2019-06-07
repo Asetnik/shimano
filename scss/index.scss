@@ -10,6 +10,10 @@ $light-gray: #f8f8f8;
   outline: none;
 }
 
+body{
+  overflow-x: hidden;
+}
+
 .container{
   margin-right: auto;
   margin-left:  auto;
