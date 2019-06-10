@@ -40,7 +40,10 @@ let animationTime = 500;
 function slide(animation) {
     slideNum = slideNum % slides.length;
     animation(slideNum);
-    firstTimer = setTimeout( slide, slideTime, rightAnimation);
+    firstTimer = setTimeout(()=> {
+        slideNum++;
+        slide(rightAnimation)
+    }, slideTime);
 }
 slide(rightAnimation);
 
@@ -64,18 +67,19 @@ function rightAnimation() {
     let start = Date.now();
 
     let timerLeave = setInterval(() => {
+        console.log("right anim");
         let timePassed = Date.now() - start;
         if (timePassed >= animationTime) {
             clearInterval(timerLeave);
             content.style.display = "none";
-            content.style.marginLeft = "0px";
+            content.style.transform = "none";
 
             h3.innerText = slides[slideNum].h3;
             firstLogoURL.src = slides[slideNum].firstLogoURL;
             secondLogoURL.src = slides[slideNum].secondLogoURL;
             p.innerText = slides[slideNum].p;
             img.src = slides[slideNum].imgURL;
-
+            console.log("pomen");
             come();
             return;
         }
@@ -84,10 +88,12 @@ function rightAnimation() {
 
     function come() {
         let timerCome = setInterval(() => {
+            console.log("come");
             let timePassed = Date.now() - start - 500;
             if (timePassed >= animationTime) {
                 clearInterval(timerCome);
-                content.style.paddingLeft = "0";
+                content.style.transform = "none";
+                console.log("come end");
                 return;
             }
             content.style.display = "grid";
@@ -104,7 +110,7 @@ function leftAnimation() {
         if (timePassed >= animationTime) {
             clearInterval(timerLeave);
             content.style.display = "none";
-            content.style.paddingLeft = "0px";
+            content.style.transform = "none";
 
             h3.innerText = slides[slideNum].h3;
             firstLogoURL.src = slides[slideNum].firstLogoURL;
@@ -123,7 +129,7 @@ function leftAnimation() {
             let timePassed = Date.now() - start - 500;
             if (timePassed >= animationTime) {
                 clearInterval(timerCome);
-                content.style.marginLeft = "0";
+                content.style.transform = "none";
                 return;
             }
             content.style.display = "grid";
@@ -133,17 +139,17 @@ function leftAnimation() {
 }
 
 function drawLeaveLeft(timePassed) {
-    content.style.marginLeft = - timePassed * (content.offsetWidth / animationTime) + "px";
+    content.style.transform = "translateX(-" + (timePassed * (content.parentElement.offsetWidth / animationTime)) + "px)";
 }
 
 function drawComeLeft(timePassed) {
-    content.style.paddingLeft = content.offsetWidth - timePassed * (content.offsetWidth / animationTime) + "px";
+    content.style.transform = "translateX(" + (content.parentElement.offsetWidth - timePassed * (content.parentElement.offsetWidth / animationTime)) + "px)";
 }
 
 function drawLeaveRight(timePassed) {
-    content.style.paddingLeft = timePassed * (content.offsetWidth / animationTime) + "px"
+    content.style.transform = "translateX(" + (timePassed * (content.parentElement.offsetWidth / animationTime)) + "px)";
 }
 
 function drawComeRight(timePassed) {
-    content.style.marginLeft = - content.offsetWidth + timePassed * (content.offsetWidth / animationTime) + "px";
+    content.style.transform = "translateX(" + (- content.parentElement.offsetWidth + timePassed * (content.parentElement.offsetWidth / animationTime)) + "px)";
 }
