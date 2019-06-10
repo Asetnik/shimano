@@ -2,22 +2,26 @@ let categoryItemsInfo = [
     {
         imgURL: "img/category-item1.png",
         h3: "Эхолоты",
-        link: "#"
+        link: "#",
+        width: 1
     },
     {
         imgURL: "img/category-item2.png",
         h3: "Спининги Shimano",
-        link: "#"
+        link: "#",
+        width: 1
     },
     {
         imgURL: "img/category-item3.png",
         h3: "Катушки с байтраннером",
-        link: "#"
+        link: "#",
+        width: 2
     },
     {
         imgURL: "img/category-item4.png",
         h3: "Автоматизированный рыбак",
-        link: "#"
+        link: "#",
+        width: 1
     }
 ];
 
@@ -27,31 +31,28 @@ let categoryRightArrow = document.getElementsByClassName("category")[0].getEleme
 let categoryItemsWrap = document.getElementsByClassName("items-wrap")[0];
 let firstElem = 0;
 
-categoryItemsWrap.style.gridTemplateColumns = "1fr 1fr 2fr";
+categoryItemsWrap.style.gridTemplateColumns = `${categoryItemsInfo[firstElem].width}fr ${categoryItemsInfo[firstElem + 1].width}fr ${categoryItemsInfo[firstElem + 2].width}fr`;
+
 drawCategory(firstElem);
 
 categoryLeftArrow.addEventListener("click", () => {
-    let gridTemplate = categoryItemsWrap.style.getPropertyValue("grid-template-columns");
-    let arrGridTemplate = gridTemplate.split(" ");
     firstElem--;
+    if( firstElem < 0 ){
+        firstElem = categoryItemsInfo.length - 1;
+    }
+    firstElem = firstElem % categoryItemsInfo.length;
     drawCategory(firstElem);
-    let indexOfFr = arrGridTemplate.indexOf("2fr");
-    arrElemSwap(arrGridTemplate, indexOfFr, indexOfFr + 1);
-    categoryItemsWrap.style.gridTemplateColumns = arrGridTemplate.join(" ");
+    categoryItemsWrap.style.gridTemplateColumns = `${categoryItemsInfo[firstElem].width}fr ${categoryItemsInfo[(firstElem + 1) % categoryItemsInfo.length].width}fr ${categoryItemsInfo[(firstElem + 2) % categoryItemsInfo.length].width}fr`;
 });
 
 categoryRightArrow.addEventListener("click", () => {
-    let gridTemplate = categoryItemsWrap.style.getPropertyValue("grid-template-columns");
-    let arrGridTemplate = gridTemplate.split(" ");
     firstElem++;
+    firstElem = firstElem % categoryItemsInfo.length;
     drawCategory(firstElem);
-    let indexOfFr = arrGridTemplate.indexOf("2fr");
-    arrElemSwap(arrGridTemplate, indexOfFr, indexOfFr - 1);
-    categoryItemsWrap.style.gridTemplateColumns = arrGridTemplate.join(" ");
+    categoryItemsWrap.style.gridTemplateColumns = `${categoryItemsInfo[firstElem].width}fr ${categoryItemsInfo[(firstElem + 1) % categoryItemsInfo.length].width}fr ${categoryItemsInfo[(firstElem + 2) % categoryItemsInfo.length].width}fr`;
 });
 
 function drawCategory(firstElem) {
-    firstElem = firstElem % categoryItemsInfo.length;
     for (let i = 0; i < categoryItems.length; i++) {
         if(i + firstElem < 0) {
             categoryItems[i].getElementsByTagName("img")[0].src = categoryItemsInfo[i + categoryItemsInfo.length + firstElem].imgURL;
@@ -66,16 +67,4 @@ function drawCategory(firstElem) {
         categoryItems[i].getElementsByTagName("img")[0].src = categoryItemsInfo[i  + firstElem].imgURL;
         categoryItems[i].getElementsByTagName("h3")[0].innerText = categoryItemsInfo[i + firstElem].h3;
     }
-}
-
-function arrElemSwap(arr, i, j) {
-    if(j == -1) {
-        j = arr.length;
-    }
-    if(j == arr.length) {
-        j = 0;
-    }
-    let buf = arr[i];
-    arr[i] = arr[j];
-    arr[j] = buf;
 }

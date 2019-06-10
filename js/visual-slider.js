@@ -55,7 +55,6 @@ rightArrow.addEventListener("click", () => {
 
 leftArrow.addEventListener("click", () => {
     clearTimeout(firstTimer);
-    console.log(slideNum);
     slideNum--;
     if( slideNum < 0 ){
         slideNum = slides.length - 1;
@@ -67,7 +66,6 @@ function rightAnimation() {
     let start = Date.now();
 
     let timerLeave = setInterval(() => {
-        console.log("right anim");
         let timePassed = Date.now() - start;
         if (timePassed >= animationTime) {
             clearInterval(timerLeave);
@@ -79,7 +77,6 @@ function rightAnimation() {
             secondLogoURL.src = slides[slideNum].secondLogoURL;
             p.innerText = slides[slideNum].p;
             img.src = slides[slideNum].imgURL;
-            console.log("pomen");
             come();
             return;
         }
@@ -88,12 +85,10 @@ function rightAnimation() {
 
     function come() {
         let timerCome = setInterval(() => {
-            console.log("come");
             let timePassed = Date.now() - start - 500;
             if (timePassed >= animationTime) {
                 clearInterval(timerCome);
                 content.style.transform = "none";
-                console.log("come end");
                 return;
             }
             content.style.display = "grid";
