@@ -71,10 +71,23 @@ let topSection = document.getElementsByClassName("top")[0];
 let topItems = document.getElementsByClassName("top-element");
 let topLeftArrow = topSection.getElementsByClassName("arrow-left")[0];
 let topLeftRight = topSection.getElementsByClassName("arrow-right")[0];
+let radioButtonsWrap = document.getElementsByClassName("radio-btns")[0];
+let radioButtons = radioButtonsWrap.getElementsByClassName("radio");
 let needElem = 0;
 
-drawTopItems(needElem);
+while(topElementsInfo.length != radioButtons.length) {
+    radioButtonsWrap.insertAdjacentHTML("beforeend", " <input class=\"radio\" name=\"slider-point\" type=\"radio\">\n" +
+        "<span class=\"radio-custom\"></span>");
+}
 
+for(let i = 0; i < radioButtons.length; i++) {
+    radioButtons[i].addEventListener("click", () => {
+        needElem = i;
+        drawTopItems(needElem);
+    });
+}
+
+drawTopItems(needElem);
 
 topLeftArrow.addEventListener("click", () => {
     needElem--;
