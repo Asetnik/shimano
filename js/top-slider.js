@@ -91,11 +91,13 @@ drawTopItems(needElem);
 
 topLeftArrow.addEventListener("click", () => {
     needElem--;
+    radioButtons[needElem % topElementsInfo.length].checked = true;
     drawTopItems(needElem);
 });
 
 topLeftRight.addEventListener("click", () => {
     needElem++;
+    radioButtons[needElem % topElementsInfo.length].checked = true;
     drawTopItems(needElem);
 });
 
